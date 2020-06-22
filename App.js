@@ -1,11 +1,17 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, TextInput, FlatList, Image } from 'react-native';
+import { store } from './src/store';
+import { Provider, useDispatch } from 'react-redux';
+import { List } from './src/components/List';
 
 export default function App() {
+  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <Provider store={store}>
+        <View style={styles.container}>
+          <List />
+        </View>
+    </Provider>
   );
 }
 
@@ -15,5 +21,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  textInput: {
+    width: '100%',
+    height: 50,
+    marginTop: 24,
+    alignItems: "center",
+    textAlign: "center"
+  },  
+  image: {
+    width: 450,
+    height: 150,
   },
 });
